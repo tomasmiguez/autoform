@@ -128,7 +128,7 @@
 
     const queryString = queryParamsToQueryString(queryParams);
 
-    const finalUrl = formUrl + "?" + queryString;
+    window.location.replace(formUrl + "?" + queryString);
   </script>
 </head>
 <body>
