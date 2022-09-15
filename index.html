@@ -7,7 +7,8 @@
 
       var entryId = relevantInfo[0];
 
-      var possibleValues = relevantInfo[1];
+      var possibleValues = relevantInfo[1].filter(possibleValue => possibleValue[0] !== "");
+
       var value = possibleValues[Math.floor(Math.random()*possibleValues.length)][0];
 
       return { entryId: entryId, value: value };
