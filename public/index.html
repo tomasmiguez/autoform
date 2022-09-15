@@ -1,89 +1,160 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<head>
+  <script>
+    function queryParamFromInput(input) {
+      var relevantInfo = input[4][0];
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.10.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.10.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+      var entryId = relevantInfo[0];
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+      var possibleValues = relevantInfo[1].filter(possibleValue => possibleValue[0] !== "");
+
+      var value = possibleValues[Math.floor(Math.random()*possibleValues.length)][0];
+
+      return { entryId: entryId, value: value };
+    }
+
+    function queryParamsToQueryString(array) {
+      var str = []
+      for(const element of array) {
+        str.push("entry." + encodeURIComponent(element.entryId) + "=" + encodeURIComponent(element.value));
       }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      return str.join("&");
+    }
+  </script>
+  <script> </script>
+  <script>
+    const FB_PUBLIC_LOAD_DATA = [null, ["", [
+        [1986356395, "Edad", null, 2, [
+            [375422014, [
+                ["Entre 14 y 18 años", null, null, null, 0],
+                ["Entre 18 y 24 años", null, null, null, 0],
+                ["Entre 25 y 30 años", null, null, null, 0],
+                ["Entre 30 y 40 años", null, null, null, 0],
+                ["Entre 40 y 50 años", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "Edad"]],
+        [2103206969, "¿De que país sos?", null, 3, [
+            [969114044, [
+                ["Argentina", null, null, null, 0],
+                ["Chile", null, null, null, 0],
+                ["Uruguay", null, null, null, 0],
+                ["México", null, null, null, 0],
+                ["Perú", null, null, null, 0],
+                ["Colombia", null, null, null, 0],
+                ["España", null, null, null, 0],
+                ["Bolivia", null, null, null, 0],
+                ["Ecuador", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿De que país sos?"]],
+        [75835238, "¿En que nivel académico te encontras?", null, 2, [
+            [2124711436, [
+                ["Cursando el secundario", null, null, null, 0],
+                ["Secundario terminado", null, null, null, 0],
+                ["Cursando una carrera/terciario", null, null, null, 0],
+                ["Carrera/terciario terminado", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿En que nivel académico te encontras?"]],
+        [1717076879, "¿Trabajas?", null, 2, [
+            [1108169685, [
+                ["Sí", null, null, null, 0],
+                ["No", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Trabajas?"]],
+        [542175608, "¿En que rubro te desempeñas? (Trabajas o estudias)", null, 2, [
+            [451766378, [
+                ["Comunicación", null, null, null, 0],
+                ["Administración", null, null, null, 0],
+                ["Diseño", null, null, null, 0],
+                ["Programación", null, null, null, 0],
+                ["Producción audiovisual", null, null, null, 0],
+                ["", null, null, null, 1]
+            ], 0, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿En que rubro te desempeñas? (Trabajas o estudias)"]],
+        [1568065144, "¿Utilizas una computadora para trabajar y/o estudiar?", null, 2, [
+            [1222693485, [
+                ["Sí", null, null, null, 0],
+                ["No", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Utilizas una computadora para trabajar y/o estudiar?"]],
+        [1138892977, "¿Consideras que tu computadora es una herramienta imprescindible para tu trabajo/estudio?", null, 2, [
+            [1168712200, [
+                ["Sí", null, null, null, 0],
+                ["No", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Consideras que tu computadora es una herramienta imprescindible para tu trabajo/estudio?"]],
+        [1210159428, "¿Cuál consideras que es tu nivel de conocimiento sobre computadoras?", null, 2, [
+            [15770540, [
+                ["Nulo", null, null, null, 0],
+                ["Bajo", null, null, null, 0],
+                ["Medio", null, null, null, 0],
+                ["Alto", null, null, null, 0],
+                ["Experto", null, null, null, 0]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Cuál consideras que es tu nivel de conocimiento sobre computadoras?"]],
+        [2035149166, "¿Cómo te asesorarías/informarías para cambiar tu computadora?", null, 4, [
+            [703823245, [
+                ["Consultando con un amigo", null, null, null, 0],
+                ["Páginas de Instagram", null, null, null, 0],
+                ["Videos de YouTube (Reviews, guías, etc)", null, null, null, 0],
+                ["Foros de Internet", null, null, null, 0],
+                ["", null, null, null, 1]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Cómo te asesorarías/informarías para cambiar tu computadora?"]],
+        [1297595829, "¿Qué información crees importante si estás buscando una computadora nueva?", null, 4, [
+            [1506621251, [
+                ["Entender que hace cada parte", null, null, null, 0],
+                ["Por qué debería elegir una pieza en vez de la otra", null, null, null, 0],
+                ["El precio", null, null, null, 0],
+                ["El rendimiento", null, null, null, 0],
+                ["", null, null, null, 1]
+            ], 1, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Qué información crees importante si estás buscando una computadora nueva?"]],
+        [949916183, "¿Sos suscriptor del canal de YouTube \"Shux\"?", null, 2, [
+            [447782460, [
+                ["Sí", null, null, null, 0],
+                ["No", null, null, null, 0]
+            ], 0, null, null, null, null, null, 0]
+        ], null, null, null, null, null, null, [null, "¿Sos suscriptor del canal de YouTube \"\u003ca href\u003d\"https://www.youtube.com/shuxteam\"\u003eShux\u003c/a\u003e\"?\u003cbr\u003e"]]
+    ], null, null, null, [0, 0], null, null, "Encuesta público objetivo para serie de contenidos", 52, [null, 1, null, 2, 0], null, null, null, null, [2], null, null, null, null, null, null, null, null, [null, ""],
+    [null, "Encuesta público objetivo para serie de contenidos"]
+], "/forms", "Formulario sin título", null, null, null, "", null, 0, 0, null, "", 0, "e/1FAIpQLSfKumHZFjVwqMojqzkDmKVXAQXdUn_Uo5Vd_r0yJ-3cvKZVCw", 0, "[]", 0, 1];
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    const inputs = FB_PUBLIC_LOAD_DATA[1][1];
+
+    const queryParams = inputs.map(queryParamFromInput);
+
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfKumHZFjVwqMojqzkDmKVXAQXdUn_Uo5Vd_r0yJ-3cvKZVCw/formResponse"
+
+    const queryString = queryParamsToQueryString(queryParams);
+
+    window.location.replace(formUrl + "?" + queryString);
+  </script>
+</head>
+<body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDaJDBtCBmNhkUUPt7f0_HpIy5uI_4Klm8",
+    authDomain: "autoform-f46c9.firebaseapp.com",
+    projectId: "autoform-f46c9",
+    storageBucket: "autoform-f46c9.appspot.com",
+    messagingSenderId: "1010192257775",
+    appId: "1:1010192257775:web:df48e317a9e54e1272c11a",
+    measurementId: "G-DTDSDB57WX"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</body>
 </html>
